@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Primanota – Einfache Buchhaltung für Selbständige und Einzelfirmen.</title>
+        <meta name="description"
+            content="Quäl’ Dich nicht länger mit deiner händischen Buchhaltung oder deinen Excel-Tabellen. Primanota hilft Dir, die Übersicht zu behalten und deine Buchhaltung gemäss den gesetzlichen Vorgaben zu erfüllen.">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#0f2636">
+        <meta name="theme-color" content="#0f2636">
+
+        <link rel="stylesheet" href="https://use.typekit.net/vks1sni.css" />
+        <link rel="stylesheet" href="/css/app.css?id=6795699c88f9797d70730fa2725a9bdf">
+        <script defer data-domain="primanota.ch" src="https://plausible.io/js/script.outbound-links.js"
+            crossorigin="anonymous"></script>
+
+        <noscript>
+            <style type="text/css">
+                [data-sal|='fade'] {
+                    opacity: 1;
+                }
+
+                [data-sal|='slide'],
+                [data-sal|='zoom'] {
+                    opacity: 1;
+                    transform: none;
+                }
+
+                [data-sal|='flip'] {
+                    transform: none;
+                }
+            </style>
+        </noscript>
+    </head>
+
+    <body class="font-sans">
+
+        <header class="mb-[4vh] md:mb-[12vh]">
+            <div class="relative bg-white" x-data="Primanota.popover({ open: false, focus: false })" x-init="init()"
+                @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup">
+                <div
+                    class="flex items-center justify-between px-4 py-6 mx-auto max-w-7xl sm:px-5 md:justify-start md:space-x-10">
+                    <div class="flex justify-start lg:w-0 lg:flex-1">
+                        <a href="/">
+                            <span class="sr-only">Primanota</span>
+                            <img class="w-auto h-8 sm:h-10" src="/images/logos/logo.svg" alt="Primanota">
+                        </a>
+                    </div>
+                    <div class="-my-2 -mr-2 md:hidden">
+                        <button type="button"
+                            class="inline-flex items-center justify-center p-2 bg-white rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-400"
+                            @click="toggle" @mousedown="if (open) $event.preventDefault()" aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="sr-only">Menü öffnen</span>
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
+                        <a href="#section-5"
+                            class="text-base font-medium text-slate-500 whitespace-nowrap hover:text-slate-900">Demo</a>
+                        <a href="https://app.primanota.ch/login" target="_blank"
+                            class="ml-8 text-base font-medium text-slate-500 whitespace-nowrap hover:text-slate-900">
+                            Anmelden
+                        </a>
+                        <a href="https://app.primanota.ch/register" target="_blank" class="ml-8 btn btn--primary">
+                            Kostenlos testen
+                        </a>
+                    </div>
+                </div>
+
+                <div x-show="open" x-transition:enter="duration-200 ease-out" x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100" x-transition:leave="duration-100 ease-in"
+                    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                    class="absolute inset-x-0 top-0 z-30 transition origin-top-right transform md:hidden" x-ref="panel"
+                    @click.away="open = false" style="display: none;">
+                    <div
+                        class="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-slate-50">
+                        <div class="px-4 pt-5 pb-6">
+                            <div class="flex items-center justify-between">
+                                <a href="/">
+                                    <img class="w-auto h-8" src="/images/logos/logo.svg" alt="Primanota">
+                                </a>
+                                <div class="-mr-2">
+                                    <button type="button"
+                                        class="inline-flex items-center justify-center p-2 bg-white rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-400"
+                                        @click="toggle">
+                                        <span class="sr-only">Menü schliessen</span>
+                                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6 18L18 6M6 6l12 12">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <nav class="grid grid-cols-1 gap-7">
+                                    <a href="#section-5" @click="toggle"
+                                        class="flex items-center p-3 -m-3 rounded-lg hover:bg-slate-50">
+                                        Demo
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="px-5 py-6">
+                            <div>
+                                <a href="https://app.primanota.ch/register" class="w-full btn--lg btn btn--primary">
+                                    30 Tage kostenlos testen
+                                </a>
+                                <p class="mt-6 text-base font-medium text-center text-slate-500">
+                                    Bereits registriert?
+                                    <a href="https://app.primanota.ch/login" class="text-slate-900">
+                                        Anmelden
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <main class="px-4 mx-auto max-w-7xl sm:px-5">
+            <div class="mx-auto max-w-prose">
+    <article
+        class="prose prose-lg prose-headings:font-semibold prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline"
+        style="hyphens: auto;">
+        <h1>Datenschutzrichtlinie</h1>
+<p>Deine Privatsphäre ist uns wichtig. Der Grundsatz von Primanota ist, Deine Privatsphäre zu respektieren und alle anwendbaren Gesetze und Vorschriften in Bezug auf alle persönlichen Daten, die wir über Dich sammeln, auch über unsere Website, <a href="https://www.primanota.ch">https://www.primanota.ch</a>, und andere Websites, die wir besitzen und betreiben, einzuhalten.</p>
+<p>Personenbezogene Daten sind alle Informationen über Dich, die dazu verwendet werden können, Dich zu identifizieren. Dazu gehören Informationen über Dich als Person (z.B. Name, Adresse und Geburtsdatum), Deine Geräte, Zahlungsdaten und sogar Informationen darüber, wie Du eine Website oder einen Online-Dienst nutzt.</p>
+<p>Für den Fall, dass unsere Website Links zu Websites und Diensten Dritter enthält, beachte bitte, dass diese Websites und Dienste ihre eigenen Datenschutzrichtlinien haben. Wenn Du einem Link zu Inhalten Dritter folgst, solltest Du deren Datenschutzrichtlinien lesen, um zu erfahren, wie sie persönliche Daten sammeln und verwenden. Diese Datenschutzrichtlinie gilt nicht für Deine Aktivitäten, nachdem Du unsere Website verlassen hast.</p>
+<p>Diese Datenschutzbestimmung ist ab dem 1. Mai 2022 wirksam.</p>
+<p>Zuletzt aktualisiert: 11. Juni 2022</p>
+<h2>Informationen, die wir sammeln</h2>
+<p>Die von uns gesammelten Informationen lassen sich in zwei Kategorien einteilen: “freiwillig zur Verfügung gestellte” und “automatisch erhobene” Informationen.</p>
+<p>“Freiwillig zur Verfügung gestellte” Informationen beziehen sich auf alle Informationen, die Du uns wissentlich und aktiv zur Verfügung stellst, wenn Du unsere Produkte und Dienstleistungen nutzt.</p>
+<p>“Automatisch erhobene” Informationen sind alle Informationen, die automatisch von Deinen Geräten beim Zugriff auf unsere Produkte und Dienstleistungen gesendet werden.</p>
+<h3>Logdaten</h3>
+<p>Wenn Du unsere Website besuchst, können unsere Server automatisch die von Deinem Webbrowser bereitgestellten Standarddaten aufzeichnen. Dazu gehören die IP-Adresse Deines Geräts, der Typ und die Version Deines Browsers, die von Dir besuchten Seiten, die Uhrzeit und das Datum Deines Besuchs, die auf jeder Seite verbrachte Zeit und andere Details über Deinen Besuch.</p>
+<p>Wenn Du bei der Nutzung der Website auf bestimmte Fehler stösst, können wir ausserdem automatisch Daten über den Fehler und die Umstände seines Auftretens erfassen. Diese Daten können technische Details über Dein Gerät, was Du zu tun versuchtest, als der Fehler auftrat, und andere technische Informationen im Zusammenhang mit dem Problem umfassen. Es kann sein, dass Du über derartige Fehler, auch wenn sie gerade auftreten, keine Benachrichtigung erhälst, dass sie aufgetreten sind oder um welche Art von Fehler es sich handelt.</p>
+<p>Bitte beachte, dass diese Informationen zwar für sich genommen nicht persönlich identifizierbar sind, dass es aber möglich sein kann, sie mit anderen Daten zu kombinieren, um einzelne Personen zu identifizieren.</p>
+<h3>Persönliche Informationen</h3>
+<p>Wir fragen Dich möglicherweise nach persönlichen Informationen – zum Beispiel, wenn Du ein Konto registrierst oder mit uns Kontakt aufnimmst –, die eine oder mehrere der folgenden Angaben enthalten können:</p>
+<ul>
+<li>Name</li>
+<li>Firmenname</li>
+<li>E-Mail</li>
+<li>Adresse</li>
+</ul>
+<h4>Sensible Informationen</h4>
+<p>“Sensible Informationen” oder “besondere Datenkategorien” sind eine Untergruppe personenbezogener Daten, die einem höheren Schutzniveau unterliegen. Beispiele für sensible Daten sind Informationen über Deine rassische oder ethnische Herkunft, politische Meinungen, Religion, Gewerkschaften oder andere Berufsverbände oder Mitgliedschaften, philosophische Überzeugungen, sexuelle Orientierung, Sexualpraktiken oder Sexualleben, Strafregister, Gesundheitsdaten oder biometrische Daten.</p>
+<p>Zu den Arten von sensiblen Informationen, die wir über Dich sammeln können, gehören:</p>
+<ul>
+<li>keine</li>
+</ul>
+<p>Wir werden keine sensiblen Daten über Dich sammeln, ohne vorher Deine Zustimmung einzuholen, und wir werden Deine sensiblen Daten nur dann verwenden oder offenlegen, wenn dies gesetzlich erlaubt, erforderlich oder genehmigt ist.</p>
+<h3>Transaktionsdaten</h3>
+<p>Transaktionsdaten beziehen sich auf Daten, die sich im Laufe des normalen Betriebs unserer Plattform ansammeln. Dazu können Transaktionsdatensätze, gespeicherte Dateien, Nutzerprofile, Analysedaten und andere Metriken sowie andere Arten von Informationen gehören, die bei der Interaktion der Nutzer mit unseren Diensten erstellt oder erzeugt werden.</p>
+<h3>Zulässige Gründe für die Verarbeitung Ihrer persönlichen Daten</h3>
+<p>Wir sammeln und verwenden Deine persönlichen Daten nur, wenn wir einen legitimen Grund dafür haben. In diesem Fall erheben wir nur personenbezogene Daten, die vernünftigerweise notwendig sind, um Dir unsere Dienstleistungen anzubieten.</p>
+<h3>Sammlung und Verwendung von Informationen</h3>
+<p>Wir können personenbezogene Daten von Dir erfassen, wenn Du eine der folgenden Aktionen auf unserer Website durchführst:</p>
+<ul>
+<li>ein Konto registrierst</li>
+<li>ein Abonnement erwirbst</li>
+<li>das Produkt oder die Dienstleistung benutzt</li>
+<li>ein mobiles Gerät oder einen Webbrowser verwendest, um auf unsere Inhalte zuzugreifen</li>
+<li>mit uns per E-Mail, über soziale Medien oder über ähnliche Technologien Kontakt aufnimmst</li>
+<li>Du uns in sozialen Medien erwähnst</li>
+</ul>
+<p>Wir können Daten für die folgenden Zwecke erheben, speichern, verwenden und weitergeben, wobei personenbezogene Daten nicht in einer Weise weiterverarbeitet werden, die mit diesen Zwecken unvereinbar ist:</p>
+<ul>
+<li>um Dir die wichtigsten Funktionen und Dienste unserer Plattform zur Verfügung zu stellen</li>
+<li>zur Kontaktaufnahme und Kommunikation mit Dir</li>
+<li>um Dir den Zugang und die Nutzung unserer Website, der zugehörigen Anwendungen und der zugehörigen Social-Media-Plattformen zu ermöglichen</li>
+<li>für interne Aufzeichnungen und administrative Zwecke</li>
+<li>zur Erfüllung unserer rechtlichen Verpflichtungen und zur Beilegung von Streitigkeiten, die wir möglicherweise haben</li>
+<li>für Sicherheits- und Betrugsprävention und um sicherzustellen, dass unsere Websites und Anwendungen sicher sind und in Übereinstimmung mit unseren Nutzungsbedingungen genutzt werden</li>
+</ul>
+<p>Wir können freiwillig zur Verfügung gestellte und automatisch erfasste personenbezogene Daten mit allgemeinen Informationen oder Forschungsdaten kombinieren, die wir von anderen vertrauenswürdigen Quellen erhalten. Wenn Du uns z.B. Deinen Standort mitteilst, können wir diesen mit allgemeinen Informationen über Währung und Sprache kombinieren, um Dir eine bessere Nutzung unserer Website und unserer Dienste zu ermöglichen.</p>
+<h3>Sicherheit Deiner persönlichen Daten</h3>
+<p>Wenn wir personenbezogene Daten sammeln und verarbeiten und solange wir diese Daten aufbewahren, schützen wir sie mit wirtschaftlich vertretbaren Mitteln, um Verlust und Diebstahl sowie unbefugten Zugriff, Offenlegung, Kopieren, Verwendung oder Änderung zu verhindern.</p>
+<p>Obwohl wir unser Bestes tun, um die persönlichen Daten, die Du uns zur Verfügung stellst, zu schützen, weisen wir darauf hin, dass keine Methode der elektronischen Übertragung oder Speicherung zu 100% sicher ist und niemand eine absolute Datensicherheit garantieren kann.</p>
+<p>Du bist für die Auswahl eines Passworts und seiner Gesamtsicherheitsstärke verantwortlich, um die Sicherheit Deiner eigenen Informationen im Rahmen unserer Dienste zu gewährleisten. Stelle beispielsweise sicher, dass alle Passwörter, die mit dem Zugriff auf Deine persönlichen Daten und Konten verbunden sind, sicher und vertraulich sind.</p>
+<h3>Wie lange wir Deine personenbezogenen Daten aufbewahren</h3>
+<p>Wir bewahren Deine personenbezogenen Daten nur so lange auf, wie dies erforderlich ist. Dieser Zeitraum kann davon abhängen, wofür wir Deine Informationen gemäss dieser Datenschutzrichtlinie verwenden. Wenn Sie uns beispielsweise im Rahmen der Erstellung eines Kontos bei uns personenbezogene Daten zur Verfügung gestellt haben, können wir diese Informationen so lange aufbewahren, wie Dein Konto in unserem System vorhanden ist. Wenn Deine personenbezogenen Daten für diesen Zweck nicht mehr erforderlich sind, werden wir sie löschen oder anonymisieren, indem wir alle Details entfernen, die Dich identifizieren.</p>
+<p>Falls erforderlich, können wir Deine personenbezogenen Daten jedoch aufbewahren, um einer gesetzlichen, buchhalterischen oder berichtspflichtigen Verpflichtung nachzukommen, oder für Archivierungszwecke im öffentlichen Interesse, wissenschaftliche oder historische Forschungszwecke oder statistische Zwecke.</p>
+<h2>Datenschutz für Kinder</h2>
+<p>Unsere Produkte und Dienstleistungen richten sich nicht direkt an Kinder unter 13 Jahren, und wir erfassen nicht wissentlich persönliche Daten von Kindern unter 13 Jahren.</p>
+<h2>Weitergabe von persönlichen Informationen an Dritte</h2>
+<p>Wir können personenbezogene Daten weitergeben an:</p>
+<ul>
+<li>eine Mutter-, Tochter- oder Schwestergesellschaft unseres Unternehmens</li>
+<li>Drittanbieter von Dienstleistungen, um ihnen die Erbringung ihrer Dienste zu ermöglichen, einschliesslich (ohne Einschränkung) IT-Dienstleistern, Datenspeichern, Hosting- und Serveranbietern, Analytikern, Fehlerprotokollierern, Inkassobüros, Anbietern von Wartungs- oder Problemlösungsdiensten, Marketinganbietern, professionellen Beratern und Betreibern von Zahlungssystemen</li>
+<li>unsere Mitarbeiter, Auftragnehmer und/oder verbundenen Unternehmen</li>
+<li>unsere bestehenden oder potenziellen Vertreter oder Geschäftspartner</li>
+<li>Kreditauskunfteien, Gerichte, Tribunale und Aufsichtsbehörden, falls Du für Produkte oder Dienstleistungen, die wir Dir bereitgestellt haben, nicht bezahlst</li>
+<li>Gerichte, Tribunale, Aufsichtsbehörden und Strafverfolgungsbehörden, soweit dies gesetzlich vorgeschrieben ist, in Verbindung mit aktuellen oder bevorstehenden Gerichtsverfahren oder zur Feststellung, Ausübung oder Verteidigung unserer gesetzlichen Rechte</li>
+<li>Dritte, einschliesslich Vertreter oder Unterauftragnehmer, die uns bei der Bereitstellung von Informationen, Produkten, Dienstleistungen oder Direktmarketing für Dich unterstützen</li>
+<li>Dritte, die Daten sammeln und verarbeiten</li>
+<li>ein Unternehmen, das unser gesamtes Vermögen und Geschäft kauft oder an das wir es ganz oder im Wesentlichen übertragen</li>
+</ul>
+<p>Zu den Dritten, die wir derzeit nutzen, gehören:</p>
+<ul>
+<li>Plausible Analytics (<a href="https://plausible.io">https://plausible.io</a>)</li>
+<li>ConvertKit (<a href="https://convertkit.com">https://convertkit.com</a>)</li>
+<li>Stripe (<a href="https://stripe.com">https://stripe.com</a>)</li>
+<li>Sentry (<a href="https://sentry.io">https://sentry.io</a>)</li>
+</ul>
+<h2>Internationale Übermittlung von persönlichen Daten</h2>
+<p>Die von uns erfassten personenbezogenen Daten werden in der Schweiz und in Deutschland gespeichert und/oder verarbeitet, oder dort, wo wir oder unsere Partner, verbundenen Unternehmen und Drittanbieter Einrichtungen unterhalten.</p>
+<p>Die Länder, in denen wir Deine personenbezogenen Daten speichern, verarbeiten oder weitergeben, haben möglicherweise nicht dieselben Datenschutzgesetze wie das Land, in dem Du die Daten ursprünglich bereitgestellt hast. Wenn wir Deine personenbezogenen Daten an Dritte in anderen Ländern weitergeben, (i) führen wir diese Übertragungen in Übereinstimmung mit den Anforderungen des geltenden Rechts durch und (ii) schützen wir die übertragenen personenbezogenen Daten in Übereinstimmung mit dieser Datenschutzrichtlinie.</p>
+<h2>Deine Rechte und die Kontrolle Deiner persönlichen Daten</h2>
+<p><strong>Deine Entscheidung:</strong> Indem Du uns personenbezogene Daten zur Verfügung stellst, erklärst Du Dich damit einverstanden, dass wir Deine personenbezogenen Daten in Übereinstimmung mit dieser Datenschutzrichtlinie erfassen, aufbewahren, verwenden und weitergeben. Du bist nicht verpflichtet, uns personenbezogene Daten zur Verfügung zu stellen. Wenn Du dies jedoch nicht tust, kann dies Auswirkungen auf die Nutzung unserer Website oder der auf ihr oder über sie angebotenen Produkte und/oder Dienstleistungen haben.</p>
+<p><strong>Informationen von Dritten:</strong> Wenn wir personenbezogene Daten über Dich von einem Dritten erhalten, werden wir diese gemäss dieser Datenschutzrichtlinie schützen. Wenn Sie ein Dritter sind, der uns personenbezogene Daten über eine andere Person zur Verfügung stellt, sichern Sie zu, dass Sie das Einverständnis dieser Person haben, die personenbezogenen Daten an uns weiterzugeben.</p>
+<p><strong>Marketing-Erlaubnis:</strong> Wenn Du zuvor zugestimmt hast, dass wir Deine personenbezogenen Daten für Direktmarketingzwecke verwenden, kannst Du Deine Meinung jederzeit ändern, indem Du uns unter Verwendung der nachstehenden Angaben kontaktierst.</p>
+<p><strong>Zugang:</strong> Du kannst Einzelheiten zu den personenbezogenen Daten anfordern, die wir über Dich gespeichert haben.</p>
+<p><strong>Berichtigung:</strong> Wenn Du der Meinung bist, dass Informationen, die wir über Dich gespeichert haben, ungenau, veraltet, unvollständig, irrelevant oder irreführend sind, wende Dich bitte an uns unter Verwendung der in dieser Datenschutzrichtlinie angegebenen Daten. Wir werden angemessene Schritte unternehmen, um alle Informationen zu korrigieren, die sich als ungenau, unvollständig, irreführend oder veraltet erweisen.</p>
+<p><strong>Nicht-Diskriminierung:</strong> Wir werden Dich nicht diskriminieren, wenn Du eines Deiner Rechte in Bezug auf Deine personenbezogenen Daten wahrnimmst. Sofern Deine personenbezogenen Daten nicht erforderlich sind, um Dir eine bestimmte Dienstleistung oder ein bestimmtes Angebot zu unterbreiten (z.B. die Verarbeitung von Transaktionsdaten), werden wir Dir keine Produkte oder Dienstleistungen vorenthalten und/oder Dir andere Preise oder Tarife für Produkte oder Dienstleistungen in Rechnung stellen, auch nicht durch die Gewährung von Rabatten oder anderen Vergünstigungen oder die Verhängung von Strafen, oder Dir ein anderes Leistungsniveau oder eine andere Qualität von Produkten oder Dienstleistungen anbieten.</p>
+<p><strong>Herunterladen von persönlichen Daten:</strong> Wir bieten Dir die Möglichkeit, die persönlichen Daten, die Du über unsere Produkte oder Dienstleistungen zur Verfügung gestellt hast, herunterzuladen. Bitte kontaktiere uns für weitere Informationen.</p>
+<p><strong>Benachrichtigung über Datenschutzverletzungen:</strong> Wir werden die für uns geltenden Gesetze in Bezug auf Datenschutzverletzungen einhalten.</p>
+<p><strong>Beschwerden:</strong> Wenn Du der Meinung bist, dass wir gegen ein einschlägiges Datenschutzgesetz verstossen haben, und eine Beschwerde einreichen möchtest, kontaktiere uns bitte unter Verwendung der nachstehenden Angaben und teile uns alle Einzelheiten zu dem angeblichen Verstoss mit. Wir werden Deine Beschwerde umgehend untersuchen und Dir schriftlich antworten, wobei wir Dir das Ergebnis unserer Untersuchung und die Schritte, die wir zur Bearbeitung Deiner Beschwerde unternehmen werden, mitteilen. Du hast auch das Recht, Dich im Zusammenhang mit Deiner Beschwerde an eine Aufsichtsbehörde oder eine Datenschutzbehörde zu wenden.</p>
+<p><strong>Abmeldung:</strong> Um Dich von unserer E-Mail-Datenbank abzumelden oder Mitteilungen (einschliesslich Marketingmitteilungen) abzubestellen, wende Dich bitte an uns, indem Du die in dieser Datenschutzrichtlinie angegebenen Details verwendest, oder nutze die in der Mitteilung vorgesehenen Abmeldemöglichkeiten. Möglicherweise müssen wir Dich um bestimmte Informationen bitten, um Deine Identität zu bestätigen.</p>
+<h2>Verwendung von Cookies</h2>
+<p>Wir verwenden “Cookies”, um Informationen über Dich und Deine Aktivitäten auf unserer Website zu sammeln. Ein Cookie ist ein kleiner Datensatz, den unsere Website auf Deinem Computer speichert und bei jedem Besuch abruft, damit wir verstehen können, wie Du unsere Website nutzt. Auf diese Weise können wir Dir Inhalte anbieten, die auf den von Dir angegebenen Präferenzen basieren.</p>
+<p>Weitere Informationen findest Du in unserer <a href="https://www.primanota.ch/cookies">Cookie-Richtlinie</a>.</p>
+<h2>Geschäftsübertragungen</h2>
+<p>Im Falle einer Übernahme von uns oder unseren Vermögenswerten oder in dem unwahrscheinlichen Fall, dass wir unser Geschäft aufgeben oder in Konkurs gehen, würden wir Daten, einschliesslich Deiner persönlichen Informationen, zu den Vermögenswerten zählen, die an Parteien übertragen werden, die uns übernehmen. Du erkennst an, dass es zu solchen Übertragungen kommen kann und dass die Parteien, die uns übernehmen, Deine personenbezogenen Daten im Rahmen der geltenden Gesetze weiterhin gemäss dieser Richtlinie verwenden können, die sie übernehmen müssen, da sie die Grundlage für alle Eigentums- oder Nutzungsrechte ist, die wir an diesen Daten haben.</p>
+<h2>Grenzen unserer Richtlinie</h2>
+<p>Unsere Website kann Links zu externen Websites enthalten, die nicht von uns betrieben werden. Bitte beachte, dass wir keine Kontrolle über den Inhalt und die Richtlinien dieser Seiten haben und keine Verantwortung oder Haftung für deren Datenschutzpraktiken übernehmen können.</p>
+<h2>Änderungen dieser Richtlinie</h2>
+<p>Es liegt in unserem Ermessen, unsere Datenschutzrichtlinie zu ändern, um Aktualisierungen unserer Geschäftsprozesse, aktuelle akzeptable Praktiken oder gesetzliche oder behördliche Änderungen zu berücksichtigen. Wenn wir uns entscheiden, diese Datenschutzrichtlinie zu ändern, werden wir die Änderungen hier unter demselben Link veröffentlichen, über den Du auf diese Datenschutzrichtlinie zugreifst.</p>
+<p>Wenn es sich um wesentliche Änderungen handelt oder wenn dies gesetzlich vorgeschrieben ist, werden wir Dich (je nach den von Dir gewählten Präferenzen für Mitteilungen von uns) und alle unsere registrierten Benutzer mit den neuen Details und Links zu den aktualisierten oder geänderten Richtlinien kontaktieren.</p>
+<p>Wenn dies gesetzlich vorgeschrieben ist, werden wir Deine Zustimmung einholen oder Dir die Möglichkeit geben, Dich für oder gegen eine neue Verwendung Deiner personenbezogenen Daten zu entscheiden.</p>
+<h2>Zusätzliche Angaben zur Einhaltung der Datenschutz-Grundverordnung (DSGVO) (EU)</h2>
+<h3>Datenverantwortlicher / Datenverarbeiter</h3>
+<p>Die DSGVO unterscheidet zwischen Organisationen, die personenbezogene Daten für ihre eigenen Zwecke verarbeiten (bekannt als „Datenverantwortliche“) und Organisationen, die personenbezogene Daten im Auftrag anderer Organisationen verarbeiten (bekannt als „Datenverarbeiter“). Wir, Primanota, mit Sitz unter der in unserem Abschnitt „Kontakt“ angegebenen Adresse, sind ein Datenverantwortlicher in Bezug auf die personenbezogenen Daten, die Du uns zur Verfügung stellst.</p>
+<h3>Rechtsgrundlagen für die Verarbeitung Deiner personenbezogenen Daten</h3>
+<p>Wir werden Deine personenbezogenen Daten nur dann erheben und verwenden, wenn wir gesetzlich dazu berechtigt sind. In diesem Fall werden wir Deine personenbezogenen Daten auf rechtmässige, faire und transparente Weise erheben und verwenden. Wenn wir Deine Zustimmung zur Verarbeitung Deiner personenbezogenen Daten einholen und Du unter 16 Jahre alt bist, werden wir die Zustimmung Deiner Eltern oder Deines Erziehungsberechtigten einholen, um Deine personenbezogenen Daten für diesen bestimmten Zweck zu verarbeiten.</p>
+<p>Unsere Rechtsgrundlagen hängen von den Diensten ab, die Du verwendest, und davon, wie Du sie verwendest. Das bedeutet, dass wir Deine Daten nur aus den folgenden Gründen erheben und verwenden:</p>
+<h4>Zustimmung von Dir</h4>
+<p>Wenn Du uns Deine Zustimmung gibst, Deine persönlichen Daten für einen bestimmten Zweck zu sammeln und zu verwenden. Du kannst Deine Einwilligung jederzeit über die von uns bereitgestellten Möglichkeiten widerrufen; eine bereits erfolgte Nutzung Deiner Daten wird hierdurch jedoch nicht berührt. Wenn Du uns kontaktierst, bist Du damit einverstanden, dass Dein Name und Deine E-Mail-Adresse verwendet werden, damit wir auf Deine Anfrage antworten können. Du kannst zwar jederzeit verlangen, dass wir Deine Kontaktdaten löschen, wir können jedoch keine E-Mails zurückrufen, die wir bereits gesendet haben. Wenn Du weitere Fragen dazu habst, wie Du Deine Einwilligung widerrufen kannst, wende Dich bitte an die im Abschnitt „Kontakt“ dieser Datenschutzrichtlinie angegebenen Kontaktdaten.</p>
+<h4>Erfüllung eines Vertrags oder einer Transaktion</h4>
+<p>Wenn Du einen Vertrag oder eine Transaktion mit uns abgeschlossen hast oder um vorbereitende Schritte zu unternehmen, bevor wir einen Vertrag oder eine Transaktion mit Dir eingehen. Wenn Du beispielsweise ein Produkt, eine Dienstleistung oder ein Abonnement von uns kaufst, müssen wir möglicherweise Deine persönlichen Daten und Zahlungsinformationen verwenden, um Deine Bestellung zu bearbeiten und zu liefern.</p>
+<h4>Unsere berechtigten Interessen</h4>
+<p>Wenn wir einschätzen, dass dies für unsere berechtigten Interessen erforderlich ist, z.B. für die Bereitstellung, den Betrieb, die Verbesserung und die Kommunikation unserer Dienste. Wir betrachten unsere legitimen Interessen als Forschung und Entwicklung, Verständnis unseres Publikums, Marketing und Bewerbung unserer Dienste, Massnahmen zum effizienten Betrieb unserer Dienste, Marketinganalysen und Massnahmen zum Schutz unserer gesetzlichen Rechte und Interessen.</p>
+<h4>Einhaltung von Gesetzen</h4>
+<p>In einigen Fällen sind wir möglicherweise gesetzlich verpflichtet, Deine personenbezogenen Daten zu verwenden oder aufzubewahren. Solche Fälle können Gerichtsbeschlüsse, strafrechtliche Ermittlungen, behördliche Anfragen und regulatorische Verpflichtungen umfassen (sind aber nicht darauf beschränkt). Wenn Du weitere Fragen dazu hast, wie wir personenbezogene Daten speichern, um das Gesetz einzuhalten, wende Dich bitte an uns, indem Du die im Abschnitt „Kontakt“ dieser Datenschutzrichtlinie angegebenen Kontaktdaten verwendest.</p>
+<h3>Internationale Übertragungen ausserhalb des Europäischen Wirtschaftsraums (EWR)</h3>
+<p>Wir stellen sicher, dass jede Übertragung personenbezogener Daten aus Ländern des Europäischen Wirtschaftsraums (EWR) in Länder ausserhalb des EWR durch geeignete Sicherheitsvorkehrungen geschützt wird, beispielsweise durch die Verwendung von Standard-Datenschutzklauseln, die von der Europäischen Kommission genehmigt wurden, oder die Verwendung von verbindlichen Unternehmensregeln oder andere gesetzlich anerkannte Mittel.</p>
+<h3>Ihre Rechte und Kontrolle Ihrer personenbezogenen Daten</h3>
+<p><strong>Einschränkung:</strong> Du hast das Recht zu verlangen, dass wir die Verarbeitung Deiner personenbezogenen Daten einschränken, wenn (i) Du Bedenken hinsichtlich der Genauigkeit Deiner personenbezogenen Daten hast; (ii) Du glaubst, dass Deine personenbezogenen Daten rechtswidrig verarbeitet wurden; (iii) Du möchtest, dass wir die personenbezogenen Daten ausschliesslich zum Zwecke eines Rechtsanspruchs aufbewahren; oder (iv) wir dabei sind, Deinen Widerspruch in Bezug auf die Verarbeitung aufgrund berechtigter Interessen zu prüfen.</p>
+<p><strong>Widerspruch gegen die Verarbeitung:</strong> Du hast das Recht, der Verarbeitung Deiner personenbezogenen Daten, die auf unseren berechtigten Interessen oder unserem öffentlichen Interesse beruht, zu widersprechen. In diesem Fall müssen wir zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Deine Interessen, Rechte und Freiheiten überwiegen, um mit der Verarbeitung Deiner personenbezogenen Daten fortzufahren.</p>
+<p><strong>Datenübertragbarkeit:</strong> Du hast möglicherweise das Recht, eine Kopie der personenbezogenen Daten anzufordern, die wir über Dich gespeichert haben. Wenn möglich, werden wir diese Informationen im CSV-Format oder einem anderen leicht lesbaren Maschinenformat bereitstellen. Du hast möglicherweise auch das Recht zu verlangen, dass wir diese personenbezogenen Daten an Dritte weitergeben.</p>
+<p><strong>Löschung:</strong> Du hast möglicherweise das Recht zu verlangen, dass wir die personenbezogenen Daten, die wir über Dich gespeichert haben, jederzeit löschen, und wir werden angemessene Schritte unternehmen, um Deine personenbezogenen Daten aus unseren aktuellen Aufzeichnungen zu löschen. Wenn Du uns auffordest, Deine personenbezogenen Daten zu löschen, werden wir Dich darüber informieren, wie sich die Löschung auf Deine Nutzung unserer Website oder unserer Produkte und Dienstleistungen auswirkt. Ausnahmen von diesem Recht können aus bestimmten rechtlichen Gründen bestehen, die wir Dir gegebenenfalls als Antwort auf Deine Anfrage darlegen. Wenn Du Dein Konto kündigst oder löschst, werden wir Deine personenbezogenen Daten innerhalb von 30 Tagen nach Löschung Deines Kontos löschen. Bitte beachte, dass Suchmaschinen und ähnliche Dritte möglicherweise noch Kopien Deiner mindestens einmal veröffentlichten personenbezogenen Daten speichern, wie z. B. bestimmte Profilinformationen und öffentliche Kommentare, selbst nachdem Du die Informationen aus unseren Diensten gelöscht oder Dein Konto deaktiviert hast.</p>
+<h2>Kontaktiere uns</h2>
+<p>Bei Fragen oder Bedenken bezüglich Deiner Privatsphäre kannst Du uns unter Verwendung der folgenden Angaben kontaktieren:</p>
+<p><a href="mailto:info@primanota.ch">info@primanota.ch</a></p>
+
+    </article>
+</div>
+        </main>
+
+        <footer class="bg-white mt-[12vh]">
+            <div class="px-4 py-12 mx-auto overflow-hidden border-t max-w-7xl sm:px-6 lg:px-8 border-slate-200">
+                <nav class="flex flex-wrap justify-center -mx-5 -my-2" aria-label="Footer">
+
+                                        <div class="px-5 py-2">
+                        <a href="/changelog " class="text-base text-slate-500 hover:text-slate-900">Changelog</a>
+                    </div>
+                                        <div class="px-5 py-2">
+                        <a href="/datenschutz " class="text-base text-slate-500 hover:text-slate-900">Datenschutz</a>
+                    </div>
+                                        <div class="px-5 py-2">
+                        <a href="/nutzungsbedingungen " class="text-base text-slate-500 hover:text-slate-900">Nutzungsbedingungen</a>
+                    </div>
+                                        <div class="px-5 py-2">
+                        <a href="/cookies " class="text-base text-slate-500 hover:text-slate-900">Cookies</a>
+                    </div>
+                                        <div class="px-5 py-2">
+                        <a href="/impressum " class="text-base text-slate-500 hover:text-slate-900">Impressum</a>
+                    </div>
+                    
+
+                </nav>
+                <div class="flex justify-center mt-8 space-x-6">
+
+                    <a href="https://www.instagram.com/primanota_app/" class="text-slate-400 hover:text-slate-500"
+                        rel="noopener noreferrer">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+
+                    <a href="https://twitter.com/primanota_app" class="text-slate-400 hover:text-slate-500"
+                        rel="noopener noreferrer">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg>
+                    </a>
+
+                </div>
+                <p class="mt-8 text-base text-center text-slate-400">Primanota ist ein Produkt von <a
+                        href="https://snø.ch" class="font-normal text-slate-600 hover:underline"
+                        target="_blank">snø</a>.
+                </p>
+            </div>
+        </footer>
+        <script src="/js/app.js?id=184818b0fe611217ff6ef09cab6fc01c"></script>
+    </body>
+
+</html>
