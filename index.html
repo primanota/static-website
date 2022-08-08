@@ -16,7 +16,7 @@
         <meta name="theme-color" content="#0f2636">
 
         <link rel="stylesheet" href="https://use.typekit.net/vks1sni.css" />
-        <link rel="stylesheet" href="/css/app.css?id=a618ee5d145bc1b1e7536fb3b8f7f3ca">
+        <link rel="stylesheet" href="/css/app.css?id=22d5b6b642cfa0d54428a419afedf6e5">
         <script defer data-domain="primanota.ch" src="https://plausible.io/js/script.outbound-links.js"
             crossorigin="anonymous"></script>
 
@@ -66,8 +66,12 @@
                         </button>
                     </div>
                     <div class="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-                        <a href="#section-5"
-                            class="text-base font-medium text-slate-500 whitespace-nowrap hover:text-slate-900">Demo</a>
+                        <a href="/#section-4"
+                            class="text-base font-medium text-slate-500 whitespace-nowrap hover:text-slate-900">Funktionen</a>
+                        <a href="/#section-7"
+                            class="ml-8 text-base font-medium text-slate-500 whitespace-nowrap hover:text-slate-900">Preis</a>
+                        <a href="/#section-5"
+                            class="ml-8 text-base font-medium text-slate-500 whitespace-nowrap hover:text-slate-900">Demo</a>
                         <a href="https://app.primanota.ch/login" target="_blank"
                             class="ml-8 text-base font-medium text-slate-500 whitespace-nowrap hover:text-slate-900">
                             Anmelden
@@ -107,6 +111,14 @@
                             </div>
                             <div class="mt-6">
                                 <nav class="grid grid-cols-1 gap-7">
+                                    <a href="#section-4" @click="toggle"
+                                        class="flex items-center p-3 -m-3 rounded-lg hover:bg-slate-50">
+                                        Funktionen
+                                    </a>
+                                    <a href="#section-7" @click="toggle"
+                                        class="flex items-center p-3 -m-3 rounded-lg hover:bg-slate-50">
+                                        Preis
+                                    </a>
                                     <a href="#section-5" @click="toggle"
                                         class="flex items-center p-3 -m-3 rounded-lg hover:bg-slate-50">
                                         Demo
@@ -155,7 +167,7 @@
     </div>
 </section>
 
-<section class="grid grid-cols-6 sm:grid-cols-12 mb-[8vh] md:mb-[12vh] lg:mb-[16vh] gap-x-5 gap-y-20" id="section-3">
+<section class="grid grid-cols-6 sm:grid-cols-12 mb-[8vh] md:mb-[12vh] lg:mb-[16vh] gap-x-5 gap-y-20" id="section-2">
     <div class="col-span-6 sm:col-span-8 sm:col-start-3">
         <img class="shadow-lg" src="images/jenny-ueberberg-BaSeK7rwc1A-unsplash.jpg" alt="Primanota">
     </div>
@@ -168,39 +180,39 @@
             Primanota als Einnahmen-Ausgaben-Rechnung</h2>
         <h3 class="max-w-2xl mx-auto text-xl text-center text-slate-600">Als Freelancer oder
             Einzelunternehmerin bist Du in der Schweiz <a class="font-medium text-primary-400 hover:underline"
-                href="https://www.primanota.ch/wissen/buchfuehrungspflicht-fuer-einzelfirmen-und-selbstaendige-in-der-schweiz"
-                target="_blank">buchführungspflichtig</a>. Primanota ist einfach zu
-            bedienen,
-            transparent, leicht nachvollziehbar und auch für buchhalterisch unerfahrene Personen gut
-            geeignet.</h3>
+                                                          href="https://www.primanota.ch/wissen/buchfuehrungspflicht-fuer-einzelfirmen-und-selbstaendige-in-der-schweiz"
+                                                          target="_blank">buchführungspflichtig</a>. Primanota ist
+            einfach zu bedienen, transparent, leicht nachvollziehbar und auch für buchhalterisch unerfahrene Personen
+            gut geeignet.</h3>
     </div>
     <div class="col-span-6 sm:col-span-12">
         <img class="border rounded-lg shadow-xl border-slate-200" src="images/screenshots/hero.jpg"
-            alt="Primanota als Einnahmen-Ausgaben-Rechnung">
+             alt="Primanota als Einnahmen-Ausgaben-Rechnung">
     </div>
 </section>
 
-<section class="grid grid-cols-6 sm:grid-cols-12 mb-[8vh] md:mb-[12vh] lg:mb-[16vh] gap-x-5 gap-y-20">
+<section class="grid grid-cols-6 sm:grid-cols-12 mb-[8vh] md:mb-[12vh] lg:mb-[16vh] gap-x-5 gap-y-20" id="section-4">
     <div class="order-1 col-span-6 md:order-none sm:col-span-10 sm:col-start-2">
-        <p class="mb-4 text-lg font-semibold text-center text-primary-400">Auch bekannt als</p>
+        <p class="mb-4 text-lg font-semibold text-center text-primary-400">Funktionen</p>
         <h2 class="max-w-4xl mx-auto mb-4 text-2xl font-semibold text-center text-slate-800 sm:text-3xl md:text-4xl">
             Milchbüechli-Rechnung</h2>
         <h3 class="max-w-2xl mx-auto text-xl text-center text-slate-600">Die «Milchbüchleinrechnung» ist ein
-            in
-            der Schweiz verbreiteter Begriff. Das aktuelle Rechnungslegungsrecht sieht Erleichterungen für
+            in der Schweiz verbreiteter Begriff. Das aktuelle Rechnungslegungsrecht sieht Erleichterungen für
             kleine Unternehmen vor: Startups, Freelancerinnen und Einzelfirmen haben die Möglichkeit, eine
-            einfache Buchhaltung zu führen und damit den Buchhaltungsaufwand zu verkleinern.</h3>
+            einfache Buchhaltung zu führen und damit den Buchhaltungsaufwand zu verkleinern. Primanota bietet dir
+            folgende Funktionen:</h3>
     </div>
     <div class="order-3 col-span-6 md:order-none sm:col-span-10 sm:col-start-2 md:col-span-7">
         <img class="border rounded-lg shadow-lg border-slate-200" data-sal="fade" src="images/screenshots/buchungen.jpg"
-            alt="">
+             alt="">
     </div>
-    <div class="flex flex-col items-center justify-center order-2 col-span-6 md:order-none md:items-start sm:col-span-8 sm:col-start-3 md:col-span-4 md:col-start-9"
+    <div
+        class="flex flex-col items-center justify-center order-2 col-span-6 md:order-none md:items-start sm:col-span-8 sm:col-start-3 md:col-span-4 md:col-start-9"
         data-sal="fade">
         <span class="inline-flex p-2 rounded-full bg-primary-50">
             <span class="inline-flex p-2 rounded-full text-primary-500 bg-primary-75">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                     stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="7" y="9" width="14" height="10" rx="2"></rect>
                     <circle cx="14" cy="14" r="2"></circle>
                     <path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"></path>
@@ -209,15 +221,15 @@
         </span>
         <h3 class="my-4 text-xl font-semibold text-slate-800">Buchungen</h3>
         <p class="text-center text-slate-600 md:text-left">Bei der einfachen Buchhaltung wird jede Einnahme
-            oder
-            Ausgabe nur einmal erfasst. Intuitive und verständliche Buchung aller Geschäftsvorfälle.</p>
+            oder Ausgabe nur einmal erfasst. Intuitive und verständliche Buchung aller Geschäftsvorfälle.</p>
     </div>
-    <div class="flex flex-col items-center justify-center order-4 col-span-6 sm:col-span-8 sm:col-start-3 md:order-none md:items-start md:col-span-4"
+    <div
+        class="flex flex-col items-center justify-center order-4 col-span-6 sm:col-span-8 sm:col-start-3 md:order-none md:items-start md:col-span-4"
         data-sal="fade">
         <span class="inline-flex p-2 rounded-full bg-primary-50">
             <span class="inline-flex p-2 rounded-full text-primary-500 bg-primary-75">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                     stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2">
                     </path>
                     <path d="M14 8h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5m2 0v1.5m0 -9v1.5"></path>
@@ -230,18 +242,19 @@
     </div>
     <div class="order-5 col-span-6 md:order-none sm:col-span-10 sm:col-start-2 md:col-span-7 md:col-start-6">
         <img class="border rounded-lg shadow-lg border-slate-200" data-sal="fade" src="images/screenshots/belege.jpg"
-            alt="">
+             alt="">
     </div>
     <div class="order-7 col-span-6 md:order-none sm:col-span-10 sm:col-start-2 md:col-span-7">
         <img class="border rounded-lg shadow-lg border-slate-200" data-sal="fade" src="images/screenshots/berichte.jpg"
-            alt="">
+             alt="">
     </div>
-    <div class="flex flex-col items-center justify-center order-6 col-span-6 md:order-none md:items-start sm:col-span-8 sm:col-start-3 md:col-span-4 md:col-start-9"
+    <div
+        class="flex flex-col items-center justify-center order-6 col-span-6 md:order-none md:items-start sm:col-span-8 sm:col-start-3 md:col-span-4 md:col-start-9"
         data-sal="fade">
         <span class="inline-flex p-2 rounded-full bg-primary-50">
             <span class="inline-flex p-2 rounded-full text-primary-500 bg-primary-75">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                     stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="7" y="9" width="14" height="10" rx="2"></rect>
                     <circle cx="14" cy="14" r="2"></circle>
                     <path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"></path>
@@ -250,15 +263,15 @@
         </span>
         <h3 class="my-4 text-xl font-semibold text-slate-800">Berichte</h3>
         <p class="text-center text-slate-600 md:text-left">Berichte bieten einen Überblick über alle Ausgaben
-            und
-            Einnahmen und schlüsseln sie nach Kategorie auf. Mit PDF-Download für die Steuererklärung.</p>
+            und Einnahmen und schlüsseln sie nach Kategorie auf. Mit PDF-Download für die Steuererklärung.</p>
     </div>
-    <div class="flex flex-col items-center justify-center order-8 col-span-6 sm:col-span-8 sm:col-start-3 md:order-none md:items-start md:col-span-4"
+    <div
+        class="flex flex-col items-center justify-center order-8 col-span-6 sm:col-span-8 sm:col-start-3 md:order-none md:items-start md:col-span-4"
         data-sal="fade">
         <span class="inline-flex p-2 rounded-full bg-primary-50">
             <span class="inline-flex p-2 rounded-full text-primary-500 bg-primary-75">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                     stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2">
                     </path>
                     <path d="M14 8h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5m2 0v1.5m0 -9v1.5"></path>
@@ -267,12 +280,11 @@
         </span>
         <h3 class="my-4 text-xl font-semibold text-slate-800">Dashboard</h3>
         <p class="text-center text-slate-600 md:text-left">Das Dashboard gibt Dir einen Überblick über Deine
-            Finanzen mit Summen und
-            Diagrammen über einen frei wählbaren Zeitraum.</p>
+            Finanzen mit Summen und Diagrammen über einen frei wählbaren Zeitraum.</p>
     </div>
     <div class="order-9 col-span-6 md:order-none sm:col-span-10 sm:col-start-2 md:col-span-7 md:col-start-6">
         <img class="border rounded-lg shadow-lg border-slate-200" data-sal="fade" src="images/screenshots/dashboard.jpg"
-            alt="">
+             alt="">
     </div>
 </section>
 
@@ -295,16 +307,16 @@
 </section>
 
 <section class="grid grid-cols-6 sm:grid-cols-12 mb-[8vh] md:mb-[12vh] lg:mb-[16vh] gap-x-5 gap-y-20" id="section-6">
-    <div class="order-1 col-span-6 md:order-none sm:col-span-6 sm:col-start-4">
+    <div class="order-1 col-span-6 md:order-none sm:col-span-10 sm:col-start-2 md:col-span-6 md:col-start-4">
         <p class="mb-4 text-lg font-semibold text-center text-primary-400">Was unsere Kunden sagen</p>
         <h2 class="max-w-4xl mx-auto mb-6 text-2xl font-semibold text-center text-slate-800 sm:text-3xl md:text-4xl">
             Selbständige und Einzelfirmen aus allen Branchen nutzen Primanota</h2>
         <figure class="p-8 text-xl text-center bg-white border shadow-sm border-slate-200 rounded-2xl">
             <img class="w-20 h-20 mx-auto mb-8 rounded-full" src="images/testimonials/katja.jpg"
-                alt="Katja Schubiger" />
+                 alt="Katja Schubiger" />
             <blockquote class="relative text-primary-700">
                 <svg class="absolute top-0 left-0 w-12 h-12 transform -translate-y-12 text-primary-300"
-                    fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                     fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                     <path
                         d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                 </svg>
@@ -313,14 +325,101 @@
                     mit wenigen Klicks die nötigen Dokumente für die Steuererklärung zu erstellen.</p>
             </blockquote>
             <figcaption class="mt-4 text-base">— Katja Schubiger, <a
-                    class="font-medium text-primary-400 hover:underline" target="_blank" rel="noopener"
-                    href="https://sistajewelry.ch">Sista Jewelry</a>
+                class="font-medium text-primary-400 hover:underline" target="_blank" rel="noopener"
+                href="https://sistajewelry.ch">Sista Jewelry</a>
             </figcaption>
         </figure>
     </div>
 </section>
 
-<section class="mb-[12vh]" id="section-6">
+<section class="grid grid-cols-6 sm:grid-cols-12 mb-[8vh] md:mb-[12vh] lg:mb-[16vh] gap-x-5 gap-y-20" id="section-7"
+         x-data="{ monthly: false }">
+    
+    <div class="col-span-6 sm:col-span-10 sm:col-start-2">
+        <p class="mb-4 text-lg font-semibold text-center text-primary-400">Preise</p>
+        <h2 class="max-w-4xl mx-auto mb-4 text-2xl font-semibold text-center text-slate-800 sm:text-3xl md:text-4xl">
+            Ein Preis für alle Fälle</h2>
+        <h3 class="max-w-2xl mx-auto text-xl text-center text-slate-600">Wenn du deine Buchhaltung mit Primanota führen
+            möchtest, dann nichts wie los! Enthält alle Funktionen, die wir anbieten, sowie unbegrenzte Buchungen,
+            unbegrenzte Belege und unbegrenzte Berichte.</h3>
+    </div>
+
+    <div class="flex col-span-6 sm:col-start-4">
+        <div class="relative inline-flex self-center mx-auto">
+            <button type="button" @click="monthly = false"
+                    x-bind:class="! monthly ? 'btn--secondary' : 'btn--transparent'" class="mr-1 btn btn--lg">Jährliche
+                Zahlung
+            </button>
+            <button type="button" @click="monthly = true" x-bind:class="monthly ? 'btn--secondary' : 'btn--transparent'"
+                    class="ml-1 btn btn--lg">Monatliche Zahlung
+            </button>
+        </div>
+    </div>
+
+    <div
+        class="relative flex flex-col col-span-6 p-8 bg-white border shadow-sm border-slate-200 sm:col-span-8 sm:col-start-3 md:col-span-6 rounded-2xl md:col-start-4">
+        <div class="flex-1">
+            <h3 class="text-xl font-semibold text-slate-900">Plus</h3>
+            <p class="flex items-baseline mt-4 text-slate-900">
+                <span class="text-5xl font-extrabold tracking-tight" x-show="monthly">14.–</span><span
+                class="text-5xl font-extrabold tracking-tight" x-show="! monthly">12.–</span>
+                <span class="ml-1 text-xl font-semibold">/ Monat</span>
+            </p>
+            <p class="mt-4 text-sm font-light text-slate-400" x-show="monthly">Monatliche Zahlung</p>
+            <p class="mt-4 text-sm font-light text-slate-400" x-show="! monthly">Jährliche Zahlung</p>
+            <p class="mt-6 text-xl text-slate-500" style="hyphens: auto;">Alles, was du zum Führen deiner einfachen
+                Buchhaltung brauchst.</p>
+
+            <ul role="list" class="mt-6 space-y-4">
+
+                <li class="flex">
+                    <svg class="flex-shrink-0 w-6 h-6 text-primary-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="ml-3 text-slate-500"><strong class="font-semibold text-slate-600">Unlimitierte</strong>
+                        Buchungen</span>
+                </li>
+
+                <li class="flex">
+                    <svg class="flex-shrink-0 w-6 h-6 text-primary-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="ml-3 text-slate-500"><strong class="font-semibold text-slate-600">Unlimitierte</strong>
+                        Belege</span>
+                </li>
+
+                <li class="flex">
+                    <svg class="flex-shrink-0 w-6 h-6 text-primary-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="ml-3 text-slate-500"><strong class="font-semibold text-slate-600">Unlimitierte</strong>
+                        Berichte</span>
+                </li>
+
+                <li class="flex">
+                    <svg class="flex-shrink-0 w-6 h-6 text-primary-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="ml-3 text-slate-500"><strong class="font-semibold text-slate-600">Belege</strong> für Einnahmen <strong
+                        class="font-semibold text-slate-600">automatisch
+                            erstellen</strong></span>
+                </li>
+            </ul>
+        </div>
+
+        <a href="https://app.primanota.ch/register?plan=plus" target="_blank"
+           class="mt-12 btn btn--xl btn--primary">Kostenlos
+            testen</a>
+    </div>
+
+    
+</section>
+
+<section class="mb-[12vh]" id="section-8">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="lg:grid lg:grid-cols-3 lg:gap-8">
             <div>
@@ -334,31 +433,18 @@
             </div>
             <div class="mt-12 lg:mt-0 lg:col-span-2">
                 <dl class="space-y-12">
-                    <!-- <div>
-                                <dt class="text-xl font-semibold text-slate-800">
-                                    Wie funktioniert die kostenlose Testversion?
-                                </dt>
-                                <dd class="mt-2 text-slate-600">
-                                    Während der kostenlosen 30-tägigen Testphase erhältst Du Zugriff auf den Plan Deiner
-                                    Wahl, mit dem Du alle verfügbaren Funktionen testen kannst. Um auf Deine Daten
-                                    zugreifen und sie nach 30 Tagen weiter verwenden zu können, musst Du ein monatliches
-                                    oder jährliches Abonnement erstellen.
-                                </dd>
-                            </div> -->
-
                     <div>
                         <dt class="text-xl font-semibold text-slate-800">
-                            Wie funktioniert die kostenlose Beta-Version?
+                            Wie funktioniert die kostenlose Testversion?
                         </dt>
                         <dd class="mt-2 text-slate-600">
-                            Während der kostenlosen Beta-Phase erhältst Du Zugriff auf alle verfügbaren
-                            Funktionen, damit Du Primanota ausführlich testen kannst. Du kannst uns
-                            jederzeit <a href="mailto:info@primanota.ch"
-                                class="font-medium text-primary-400 hover:underline">Dein Feedback</a> mit
-                            Verbesserungsvorschlägen zukommen lassen.
+                            Während der kostenlosen 30-tägigen Testphase erhältst Du Zugriff auf den Plan Deiner
+                            Wahl, mit dem Du alle verfügbaren Funktionen testen kannst. Um auf Deine Daten
+                            zugreifen und sie nach 30 Tagen weiter verwenden zu können, musst Du ein monatliches
+                            oder jährliches Abonnement abschliessen.
                         </dd>
                     </div>
-                    <!--
+
                     <div>
                         <dt class="text-xl font-semibold text-slate-800">
                             Brauche ich eine Kreditkarte, um mich anzumelden?
@@ -387,8 +473,7 @@
                         </dt>
                         <dd class="mt-2 text-slate-600">
                             Ja, Du hast die Möglichkeit, ein Jahresabonnement zu bezahlen und einen Rabatt
-                            von 2
-                            Monaten zu erhalten. Es gibt keine Kündigungs- oder andere versteckte Gebühren.
+                            von 15% zu erhalten. Es gibt keine Kündigungs- oder andere versteckte Gebühren.
                         </dd>
                     </div>
 
@@ -400,7 +485,6 @@
                             Wir akzeptieren derzeit Visa, Mastercard und American-Express-Kreditkarten.
                         </dd>
                     </div>
-                    -->
 
                     <div>
                         <dt class="text-xl font-semibold text-slate-800">
@@ -408,8 +492,7 @@
                         </dt>
                         <dd class="mt-2 text-slate-600">
                             Absolut! Alle Deine Daten sind privat und sicher auf Servern in Deutschland
-                            gehostet, daher kannst nur Du sie einsehen
-                            und verwenden.
+                            gehostet. Nur Du alleine kannst sie einsehen und verwenden.
                         </dd>
                     </div>
                 </dl>
@@ -418,18 +501,6 @@
     </div>
 </section>
 
-<section id="section-9">
-    <div class="px-8 py-12 text-center rounded-lg bg-primary-50">
-        <h2 class="max-w-4xl mx-auto mb-6 text-2xl font-semibold text-center text-primary-800 sm:text-3xl md:text-4xl">
-            Jetzt kostenlos die Beta-Version testen</h2>
-        <p class="max-w-2xl mx-auto mb-8 text-xl text-center text-primary-700">Während der Beta-Phase kannst
-            Du Primanota auf unbestimmte Zeit kostenlos nutzen. Wenn Du mit deinem Feedback mithilfst, das
-            Produkt zu verbessern, erhältst Du nach Ablauf der Beta-Phase einen Rabatt-Code.</p>
-        <a href="https://app.primanota.ch/register" target="_blank" class="btn btn--primary">
-            Loslegen und registrieren!
-        </a>
-    </div>
-</section>
         </main>
 
         <footer class="bg-white mt-[12vh]">
@@ -477,12 +548,12 @@
 
                 </div>
                 <p class="mt-8 text-base text-center text-slate-400">Primanota ist ein Produkt von <a
-                        href="https://snø.ch" class="font-normal text-slate-600 hover:underline"
-                        target="_blank">snø</a>.
+                    href="https://snø.ch" class="font-normal text-slate-600 hover:underline"
+                    target="_blank">snø</a>.
                 </p>
             </div>
         </footer>
-        <script src="/js/app.js?id=184818b0fe611217ff6ef09cab6fc01c"></script>
+        <script src="/js/app.js?id=bc9782bacebca9624b4e96d674b1f3d7"></script>
     </body>
 
 </html>
