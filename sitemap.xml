@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
     <url>
         <loc>https://www.primanota.ch</loc>
-        <lastmod>2022-04-29T20:16:37+00:00</lastmod>
-        <priority>1</priority>
+        <lastmod>2022-07-11T20:39:45+00:00</lastmod>
+                <priority> 1
+                    </priority>
     </url>
     <url>
         <loc>https://www.primanota.ch/changelog</loc>
-        <lastmod>2022-05-07T16:19:56+00:00</lastmod>
-        <priority> 0.8</priority>
+        <lastmod>2022-05-07T21:38:57+00:00</lastmod>
+                <priority> 0.8         </priority>
     </url>
     <url>
         <loc>https://www.primanota.ch/cookies</loc>
         <lastmod>2022-05-04T16:19:56+00:00</lastmod>
-        <priority> 0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.primanota.ch/nutzungsbedingungen</loc>
-        <lastmod>2022-05-04T16:20:07+00:00</lastmod>
-        <priority> 0.8</priority>
+                <priority> 0.8         </priority>
     </url>
     <url>
         <loc>https://www.primanota.ch/datenschutz</loc>
-        <lastmod>2022-05-04T16:22:16+00:00</lastmod>
-        <priority> 0.8</priority>
+        <lastmod>2022-06-11T21:18:42+00:00</lastmod>
+                <priority> 0.8         </priority>
     </url>
     <url>
         <loc>https://www.primanota.ch/impressum</loc>
         <lastmod>2022-05-04T19:47:57+00:00</lastmod>
-        <priority> 0.8</priority>
+                <priority> 0.8         </priority>
+    </url>
+    <url>
+        <loc>https://www.primanota.ch/nutzungsbedingungen</loc>
+        <lastmod>2022-05-04T16:20:07+00:00</lastmod>
+                <priority> 0.8         </priority>
+    </url>
+    <url>
+        <loc>https://www.primanota.ch/wissen</loc>
+        <lastmod>2022-06-03T21:39:07+00:00</lastmod>
+                <priority> 0.8         </priority>
+    </url>
+    <url>
+        <loc>https://www.primanota.ch/wissen/buchfuehrungspflicht-fuer-einzelfirmen-und-selbstaendige-in-der-schweiz</loc>
+        <lastmod>2022-08-15T08:42:36+00:00</lastmod>
+                <priority> 0.8         </priority>
+    </url>
+    <url>
+        <loc>https://www.primanota.ch/wissen/wer-darf-eine-einfache-buchhaltung-fuehren</loc>
+        <lastmod>2022-08-15T08:52:31+00:00</lastmod>
+                <priority> 0.8         </priority>
     </url>
 
 </urlset>
